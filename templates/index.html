@@ -1,64 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CampusLink | University Opportunities Marketplace</title>
+    <title>CampusLink</title>
 
-    <link rel="stylesheet"
-          href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
-<header>
+<header class="navbar">
+    <div class="nav-container">
 
-    <div class="logo">
-        Campus<span>Link</span>
+        <div class="logo">
+            Campus<span>Link</span>
+        </div>
+
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#marketplace">Marketplace</a>
+            <a href="#opportunities">Opportunities</a>
+            <a href="#ai-match">AI Match</a>
+        </nav>
+
     </div>
-
-    <nav>
-        <a href="#home">Home</a>
-        <a href="#marketplace">Marketplace</a>
-        <a href="#opportunities">Opportunities</a>
-        <a href="#ai-match">AI Match</a>
-    </nav>
-
 </header>
 
 
-<!-- HERO -->
-
-<section id="home" class="hero">
+<section class="hero" id="home">
 
     <div class="hero-content">
 
-        <p class="tag">YOUR CAMPUS. YOUR OPPORTUNITIES.</p>
+        <div class="hero-tag">
+            YOUR CAMPUS. YOUR OPPORTUNITIES.
+        </div>
 
         <h1>
-            Discover opportunities.
+            Discover opportunities.<br>
             <span>Showcase your skills.</span>
         </h1>
 
-        <p class="hero-description">
+        <p>
             CampusLink is a university-only platform where students
-            can discover opportunities, advertise products and services,
-            and showcase their skills within their campus community.
+            discover opportunities, advertise products and services,
+            showcase their skills, and connect with the wider campus
+            community.
         </p>
 
         <div class="hero-buttons">
-
-            <a href="#marketplace" class="button">
+            <a href="#marketplace" class="btn primary">
                 Explore Campus
             </a>
 
-            <a href="#ai-match" class="button secondary">
+            <a href="#opportunities" class="btn secondary">
                 Find Opportunities
             </a>
-
         </div>
 
     </div>
@@ -66,65 +64,51 @@
 </section>
 
 
-<!-- HOW IT WORKS -->
-
-<section class="how-it-works">
+<section class="section">
 
     <div class="section-heading">
+        <span>HOW IT WORKS</span>
 
-        <p class="tag">HOW IT WORKS</p>
-
-        <h2>One platform for your campus community</h2>
-
-        <p>
-            CampusLink brings student opportunities, services,
-            products and skills together in one place.
-        </p>
-
+        <h2>
+            One platform for your campus community.
+        </h2>
     </div>
 
-
-    <div class="cards">
+    <div class="cards three">
 
         <div class="card">
-
-            <div class="icon">🛍️</div>
+            <div class="card-icon">01</div>
 
             <h3>Student Marketplace</h3>
 
             <p>
-                Students can advertise products they sell
-                directly to other students on campus.
+                Students can advertise products and services within
+                their university community.
             </p>
-
         </div>
 
 
         <div class="card">
-
-            <div class="icon">💼</div>
+            <div class="card-icon">02</div>
 
             <h3>Opportunities</h3>
 
             <p>
-                Discover internships, campus projects,
-                part-time opportunities and other openings.
+                Discover projects, research opportunities, campus jobs,
+                internships and other opportunities.
             </p>
-
         </div>
 
 
         <div class="card">
-
-            <div class="icon">⭐</div>
+            <div class="card-icon">03</div>
 
             <h3>Showcase Your Skills</h3>
 
             <p>
-                Create a student profile and showcase your
-                skills, services, experience and projects.
+                Create a profile that allows other students, lecturers
+                and university projects to discover your skills.
             </p>
-
         </div>
 
     </div>
@@ -132,83 +116,71 @@
 </section>
 
 
-<!-- MARKETPLACE -->
-
-<section id="marketplace" class="marketplace">
+<section class="section light-section" id="marketplace">
 
     <div class="section-heading">
 
-        <p class="tag">CAMPUS MARKETPLACE</p>
+        <span>CAMPUS MARKETPLACE</span>
 
-        <h2>What students can offer</h2>
+        <h2>
+            Turn your skills into opportunities.
+        </h2>
 
         <p>
-            A simple way for students to discover useful products
-            and services within their university community.
+            Students can showcase what they can offer and connect
+            with other members of the university community.
         </p>
 
     </div>
 
 
-    <div class="market-grid">
+    <div class="marketplace-grid">
 
         <div class="market-card">
-
-            <span>🎨</span>
-
             <h3>Graphic Design</h3>
 
             <p>
-                Posters, logos, invitations and other design services.
+                Posters, flyers, logos, invitations and other
+                creative services.
             </p>
 
-            <button>View Services</button>
-
+            <span>Student Services</span>
         </div>
 
 
         <div class="market-card">
-
-            <span>💻</span>
-
             <h3>Technology</h3>
 
             <p>
-                Coding, websites, computer assistance and technical services.
+                Programming, website development, computer support
+                and technology-related services.
             </p>
 
-            <button>View Services</button>
-
+            <span>Student Services</span>
         </div>
 
 
         <div class="market-card">
-
-            <span>📚</span>
-
             <h3>Tutoring</h3>
 
             <p>
-                Students can offer tutoring and academic support services.
+                Students can offer tutoring and academic support
+                in subjects they understand well.
             </p>
 
-            <button>View Services</button>
-
+            <span>Academic Support</span>
         </div>
 
 
         <div class="market-card">
-
-            <span>🛒</span>
-
             <h3>Student Products</h3>
 
             <p>
-                Clothes, food, accessories and other products sold by students.
+                Advertise products and items directly to students
+                within the university community.
             </p>
 
-            <button>Browse Products</button>
-
+            <span>Marketplace</span>
         </div>
 
     </div>
@@ -216,19 +188,19 @@
 </section>
 
 
-<!-- OPPORTUNITIES -->
-
-<section id="opportunities" class="opportunities">
+<section class="section" id="opportunities">
 
     <div class="section-heading">
 
-        <p class="tag">OPPORTUNITY HUB</p>
+        <span>OPPORTUNITY HUB</span>
 
-        <h2>Find opportunities within your campus</h2>
+        <h2>
+            Discover opportunities around campus.
+        </h2>
 
         <p>
-            Students can discover opportunities that match their
-            skills, interests and experience.
+            Students and university staff can share opportunities
+            and find people with the skills they need.
         </p>
 
     </div>
@@ -236,61 +208,68 @@
 
     <div class="opportunity-list">
 
-        <div class="opportunity">
+        <div class="opportunity-card">
 
             <div>
-
-                <span class="category">STUDENT PROJECT</span>
+                <span class="opportunity-type">
+                    PROJECT
+                </span>
 
                 <h3>Software Development Project</h3>
 
                 <p>
-                    Looking for students interested in web development
-                    and software engineering.
+                    Work on a student software project involving
+                    programming and web development.
                 </p>
-
             </div>
 
-            <button>View Opportunity</button>
+            <div class="arrow">
+                →
+            </div>
 
         </div>
 
 
-        <div class="opportunity">
+        <div class="opportunity-card">
 
             <div>
-
-                <span class="category">RESEARCH</span>
+                <span class="opportunity-type">
+                    RESEARCH
+                </span>
 
                 <h3>Student Research Assistant</h3>
 
                 <p>
-                    Opportunity for students interested in technology
-                    and research.
+                    Assist with university research projects involving
+                    technology and data.
                 </p>
-
             </div>
 
-            <button>View Opportunity</button>
+            <div class="arrow">
+                →
+            </div>
 
         </div>
 
 
-        <div class="opportunity">
+        <div class="opportunity-card">
 
             <div>
-
-                <span class="category">CAMPUS WORK</span>
+                <span class="opportunity-type">
+                    MEDIA
+                </span>
 
                 <h3>Digital Media Assistant</h3>
 
                 <p>
-                    Help create digital content for a university project.
+                    Support university projects with digital content,
+                    branding and social media.
                 </p>
-
             </div>
 
-            <button>View Opportunity</button>
+            <div class="arrow">
+                →
+            </div>
 
         </div>
 
@@ -299,57 +278,47 @@
 </section>
 
 
-<!-- AI FEATURE -->
+<section class="ai-section" id="ai-match">
 
-<section id="ai-match" class="ai-section">
+    <div class="ai-container">
 
-    <div class="section-heading">
+        <div class="ai-heading">
 
-        <p class="tag">AI-POWERED</p>
+            <span>AI-POWERED</span>
 
-        <h2>Find opportunities that match you</h2>
+            <h2>
+                Find opportunities that match your skills.
+            </h2>
 
-        <p>
-            Tell CampusLink about your skills and interests.
-            The AI assistant can help identify relevant opportunities.
-        </p>
-
-    </div>
-
-
-    <div id="chat">
-
-        <div class="ai-intro">
-
-            <div class="ai-icon">🤖</div>
-
-            <div>
-
-                <h3>CampusLink AI Match</h3>
-
-                <p>
-                    Describe your skills, course or interests.
-                </p>
-
-            </div>
+            <p>
+                Tell CampusLink about your skills, interests or
+                academic background and explore relevant opportunities.
+            </p>
 
         </div>
 
 
-        <div id="messages"></div>
+        <div class="ai-box">
+
+            <div class="input-area">
+
+                <input
+                    type="text"
+                    id="messageInput"
+                    placeholder="e.g. I'm a software engineering student who knows Python..."
+                    autocomplete="off"
+                >
+
+                <!-- AI MATCH BUTTON -->
+                <button onclick="findMatches()">
+                    Find Matches
+                </button>
+
+            </div>
 
 
-        <div class="input-row">
-
-            <input
-                id="messageInput"
-                type="text"
-                placeholder="e.g. I'm a software engineering student who knows Python..."
-            >
-
-            <button onclick="sendMessage()">
-                Find Matches
-            </button>
+            <!-- AI RESULTS APPEAR HERE -->
+            <div id="messages" class="messages"></div>
 
         </div>
 
@@ -357,22 +326,29 @@
 
 </section>
 
-
-<!-- FOOTER -->
 
 <footer>
 
-    <div class="logo">
-        Campus<span>Link</span>
+    <div class="footer-content">
+
+        <div>
+
+            <div class="logo">
+                Campus<span>Link</span>
+            </div>
+
+            <p>
+                AI-powered university opportunities and marketplace prototype.
+            </p>
+
+        </div>
+
+
+        <div class="footer-right">
+            Student-developed prototype
+        </div>
+
     </div>
-
-    <p>
-        AI-powered university opportunities and marketplace prototype.
-    </p>
-
-    <small>
-        Student-developed prototype
-    </small>
 
 </footer>
 
@@ -380,5 +356,4 @@
 <script src="{{ url_for('static', filename='app.js') }}"></script>
 
 </body>
-
 </html>
