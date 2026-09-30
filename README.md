@@ -1,6 +1,6 @@
 # CampusLink
 ### 🌐 Live Prototype
-[Visit CampusLink](http://127.0.0.1:5000/#ai-match)
+[Visit CampusLink](https://campuslink-7lks.onrender.com?utm)
 CampusLink is an AI-powered university marketplace and opportunity platform designed to connect students, lecturers, and the wider campus community in one digital space.**
 
 The platform enables students to advertise products and services, showcase their skills, discover projects, internships, research opportunities, and campus jobs, and connect with other students for collaboration.
