@@ -1,16 +1,41 @@
-import os
-
 from flask import Flask, render_template, request, jsonify
-from dotenv import load_dotenv
-from openai import OpenAI
-
-load_dotenv()
 
 app = Flask(__name__)
 
-client = OpenAI(
-    api_key=os.getenv("OPENAI_API_KEY")
-)
+
+# Simple AI-assisted matching prototype
+OPPORTUNITIES = [
+    {
+        "title": "Software Development Project",
+        "description": "Work on a student software project involving programming and web development.",
+        "skills": ["python", "java", "javascript", "programming", "software", "web development"]
+    },
+    {
+        "title": "Database Assistant",
+        "description": "Support database-related projects involving SQL and database management.",
+        "skills": ["sql", "postgresql", "mysql", "database", "databases"]
+    },
+    {
+        "title": "Student Research Assistant",
+        "description": "Assist with university research projects involving technology and data.",
+        "skills": ["research", "data", "python", "artificial intelligence", "ai"]
+    },
+    {
+        "title": "Web Development Opportunity",
+        "description": "Contribute to websites and web applications using modern web technologies.",
+        "skills": ["html", "css", "javascript", "web", "web development"]
+    },
+    {
+        "title": "AI and Technology Project",
+        "description": "Explore artificial intelligence and technology solutions for real-world problems.",
+        "skills": ["ai", "artificial intelligence", "python", "machine learning"]
+    },
+    {
+        "title": "Student Technology Support",
+        "description": "Help students or university projects with technology, networking, and computer systems.",
+        "skills": ["networking", "linux", "computers", "technology", "it", "systems"]
+    }
+]
 
 
 @app.route("/")
@@ -18,49 +43,47 @@ def home():
     return render_template("index.html")
 
 
-@app.route("/api/chat", methods=["POST"])
-def chat():
+@app.route("/api/match", methods=["POST"])
+def match_opportunities():
 
     data = request.get_json()
-
-    message = data.get("message", "").strip()
+    message = data.get("message", "").lower().strip()
 
     if not message:
         return jsonify({
-            "error": "Please enter a question."
+            "error": "Please describe your skills or interests."
         }), 400
 
-    try:
+    matches = []
 
-        response = client.responses.create(
-            model="gpt-5-mini",
-            instructions="""
-            You are a helpful university student assistant.
+    for opportunity in OPPORTUNITIES:
 
-            Explain technical concepts clearly and simply.
-            Help students understand programming, databases,
-            algorithms, software engineering and artificial intelligence.
+        score = 0
 
-            Do not complete academic assessments dishonestly.
-            Instead, guide the student through the concepts.
-            """,
+        for skill in opportunity["skills"]:
+            if skill in message:
+                score += 1
 
-            input=message
-        )
+        if score > 0:
+            matches.append({
+                "title": opportunity["title"],
+                "description": opportunity["description"],
+                "score": score
+            })
 
-        answer = response.output_text
+    matches.sort(key=lambda x: x["score"], reverse=True)
 
-        return jsonify({
-            "response": answer
-        })
+    if not matches:
+        matches = [
+            {
+                "title": "Explore Campus Opportunities",
+                "description": "Your profile did not produce a direct match yet. Try adding skills such as Python, databases, web development, networking, research, or AI."
+            }
+        ]
 
-    except Exception as error:
-
-        print(error)
-
-        return jsonify({
-            "error": "The AI service could not be reached."
-        }), 500
+    return jsonify({
+        "matches": matches[:3]
+    })
 
 
 if __name__ == "__main__":
